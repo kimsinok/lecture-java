@@ -1,5 +1,5 @@
 
-public class Account {
+public class Account  {
     //instance field
     private String acccountNumber;
     private String name;
@@ -43,4 +43,33 @@ public class Account {
         account.deposit(balance);
     }
 
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public void printAccount() {
+        System.out.printf("계좌번호 : %s, 이름 : %s, 비밀번호 : %s, 잔고 : %d%n", 
+            this.acccountNumber, this.name, this.pwd, this.balance);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("계좌번호 : %s, 이름 : %s, 비밀번호 : %s, 잔고 : %d%n", 
+            this.acccountNumber, this.name, this.pwd, this.balance);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Account account = (Account)obj;
+        if(this.acccountNumber.equals(account.acccountNumber))  {
+            return true;
+        }
+        return false;
+    }
+
+    
 }
