@@ -17,12 +17,31 @@ public class Car {
 
     //속도를 높이다.
     public void accelerate(int speed) {
-        this.speed += speed;
+        this.speed = this.speed + speed;
+        //this.speed += speed;
     }
 
     //속도를 낮추다
     public void decelerate(int speed) {
         this.speed -= speed;
-    }    
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }  
+    
+    
     
 }
