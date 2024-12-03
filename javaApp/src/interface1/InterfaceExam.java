@@ -1,7 +1,6 @@
 package interface1;
 
 interface Pay {
-
     //추상 메소드
     //public abstract void payment();
     void payment();
@@ -57,6 +56,17 @@ class Cash implements Pay {
 
 public class InterfaceExam {
 
+    public static void printPay(Pay pay) {            // Pay pay =  new Card("1111",  10000);
+
+        if (pay instanceof Card) {
+            System.out.println("Card instance type");        
+        } else if (pay instanceof Cash) {
+            System.out.println("Cash instance type");
+        } 
+        pay.payment();    
+    }
+
+
     public static void main(String[] args) {
 
         // 객체 생성
@@ -69,17 +79,18 @@ public class InterfaceExam {
         // Pay pay = new Pay();  // Error
         
        
+        // Pay card = new Card("1111",  10000); 
+        // card.payment();
 
-        Pay card = new Card("1111",  10000); 
-        card.payment();
+        // Pay cash = new Cash(10000); 
+        // cash.payment();
 
+        // printPay(new Card("1111",  10000));
+        Card card = new Card("1111",  10000); 
+        printPay(card);
 
-        Pay cash = new Cash(10000); 
-        cash.payment();
-
-
-
-
+        // Cash cash = new Cash(5000);
+        // printPay(cash);
 
     }
 
