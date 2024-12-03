@@ -85,7 +85,9 @@ public class InterfaceExam {
         // Pay cash = new Cash(10000); 
         // cash.payment();
 
+        // 아래 코드를 줄여서 다음과 같이 코딩 가능합니다.
         // printPay(new Card("1111",  10000));
+        
         Card card = new Card("1111",  10000); 
         printPay(card);
 
