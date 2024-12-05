@@ -16,11 +16,18 @@ public class ArrayListExam1 {
         // names.add(1); // Error
 
         // Enhanced for문
-        for(String name : names) {
-            System.out.println(name);
-        }
+        // for(String name : names) {
+        //     System.out.println(name);
+        // }
+
+        names.stream().forEach(System.out::println);
+
+        System.out.println(names.size());   // 5
+ 
+        System.out.println(names.isEmpty());  // false
         
     }
 
 }
+
 
