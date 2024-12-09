@@ -1,1 +1,3 @@
-https://www.notion.so/JavaScript-ECMAScript-6-107340c0841d805c81c1e5030804f962
+자바스크립트 : https://www.notion.so/JavaScript-ECMAScript-6-107340c0841d805c81c1e5030804f962
+
+React : https://www.notion.so/React-127340c0841d80f78819e24686b75e93
