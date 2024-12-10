@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="btn" type="button">+</button>
+
+    <script>
+
+        // Global Scope
+        let count = 1;
+
+        function increase() {
+            // let count = 1;
+            console.log('count : ', count++);
+        }
+
+
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', increase);
+
+        count = 'hello';
+
+
+    </script>
+
+</body>
+</html>

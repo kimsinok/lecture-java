@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="btn" type="button">+</button>
+
+    <script>
+        /*
+        1. 즉시 실행 함수 : 
+        - 선언과 동시에 실행되는 함수
+        - 독립된 스코프를 갖음
+        */
+        const increase = (function() {            
+            console.log('call increase!!');                        
+            let count = 1;
+
+            return function () {
+                console.log('count : ', count++);
+            };
+            
+        })();
+
+
+        function handleClick() {
+            increase();                        
+        }
+
+
+        const btn = document.getElementById('btn');
+
+        // btn.addEventListener('click', () => {
+        //     increase();
+        // });
+
+        
+        btn.addEventListener('click', handleClick);
+
+        // console.log('count : ', count); // error
+        
+
+    </script>
+
+</body>
+</html>
