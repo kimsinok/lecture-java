@@ -46,6 +46,20 @@ console.log(`month : ${array[1]}월`);
 console.log(`date : ${array[2]}일`);
 
 
+const temp = 'Hello';
+
+console.log('upper case : ', temp.toUpperCase());
+
+console.log('lower case : ', temp.toLowerCase());
 
 
+console.log(temp.padStart(10, '*'));
 
+console.log(temp.padEnd(10, '*'));
+
+
+const temp1 = ' Hello  ';
+
+console.log(temp1.trim());
+
+console.log(temp1.trim().length);
