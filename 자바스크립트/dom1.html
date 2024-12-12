@@ -1,0 +1,29 @@
+
+<html>
+    <head>    
+        <title>DOM (Document Object Modoel)</title>
+    </head>
+    <body>
+        
+        <h1>Hello</h1>     
+        <p id="p1">Hi</p>     
+        <p id="p2">안녕</p>     
+
+        <script>
+
+            const pElement = document.getElementById('p1');
+            console.log('pElement : ', pElement); // <p id="p1">Hi</p>
+            console.log('pElement tagName : ', pElement.tagName); // P
+            console.log('pElement id : ', pElement.id);  // p1
+            console.log('pElement nodeType : ', pElement.nodeType);  // 1
+            console.log('pElement text : ', pElement.textContent);  // Hi
+
+            pElement.style.backgroundColor = 'yellow';
+
+        </script>
+
+
+
+    </body>
+
+</html>

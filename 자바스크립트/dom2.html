@@ -1,0 +1,44 @@
+
+html>
+    <head>    
+        <title>DOM (Document Object Modoel)</title>
+        <style>
+            /* 선택자 : Selector */
+            .highlignt {   /* class 선택자 */
+               background-color: yellow; 
+            }
+
+            #p1 { /* id 선택자 */
+                font-weight: bold;
+                color: blue;            
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <h1>Hello</h1>     
+        <p class="highlignt">Hi</p>     
+        <p id="p1">안녕</p>     
+
+        <script>
+
+            // class 선택자를 이용하여 Element 조회
+            
+            let pElement = document.querySelector('.highlignt');
+
+            pElement.style.color = 'red';
+
+            // id 선택자를 이용하여 Element 조회
+
+            pElement = document.querySelector('#p1');
+
+            pElement.style.backgroundColor = 'yellow';
+
+        </script>
+
+
+
+    </body>
+
+</html>
