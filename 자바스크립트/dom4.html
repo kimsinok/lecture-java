@@ -1,0 +1,36 @@
+
+html>
+    <head>    
+        <title>DOM (Document Object Modoel)</title>
+        <style>
+            
+            .highlight {   /* class 선택자 */
+               background-color: yellow; 
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <h1>Hello</h1>     
+        <p class="highlight">Hi</p>     
+        <p class="highlight">안녕</p>     
+
+        <script>
+            
+            const h1Elment = document.createElement('h1');
+
+            const textNode = document.createTextNode('Welcome');
+
+            h1Elment.appendChild(textNode);
+
+            document.body.appendChild(h1Elment);
+
+
+        </script>
+
+
+
+    </body>
+
+</html>

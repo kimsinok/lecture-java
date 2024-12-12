@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <script>
+
+
+        window.addEventListener('load', function() {
+
+
+            const userForm = document.getElementById('userForm');
+            
+            userForm.addEventListener('submit', function(event) {
+
+                event.preventDefault();
+                
+                const formData = new FormData(userForm);
+
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const file = formData.get('file');
+
+                console.log(`name : ${name}, email : ${email}`);
+                console.log('file : ', file);
+                
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <form id="userForm" method="post" enctype="multipart/form-data">
+        <div>
+            Name : <input type="text" name="name" />
+        </div>
+        <div>
+            Email : <input type="email" name="email" />
+        </div>
+       <div>
+            Image : <input type="file" name="file" />
+        </div>
+        
+        <button type="submit">가입</button>
+
+    </form>
+
+</body>
+</html>

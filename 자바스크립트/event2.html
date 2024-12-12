@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>   
+</head>
+<body>
+        
+    <button id="btn" type="button" onclick="hello(this);">Click</button>
+
+
+    <script>
+        function hello(target) {
+            console.log('Hello');
+            consoe.log('this : ', this);  // window
+            target.style.backgroundColor = 'yellow';
+        }
+    </script>
+
+</body>
+</html>

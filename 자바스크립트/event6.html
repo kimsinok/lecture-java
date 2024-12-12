@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script>
+        window.addEventListener('load' , function() {           
+
+            const btn = document.getElementById('btn');
+
+            btn.addEventListener('click', function(e) {
+                
+                console.log('e : ', e);  //Event 객체
+
+                console.log('this : ', this);        // target
+                console.log('target : ', e.target);  // target
+                console.log('currentTarget : ', e.currentTarget);  // currentTarget
+                console.log('type : ', e.type);  // click
+                          
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+        
+    <button id="btn" type="button">Click</button>
+
+</body>
+</html>

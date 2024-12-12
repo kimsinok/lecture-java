@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script>
+        window.addEventListener('load' , function() {
+            // event hahdler : callback
+            console.log('load');
+
+            const btn = document.getElementById('btn');
+            btn.addEventListener('click', function() {
+                console.log('click');
+                console.log('this : ', this);    
+                this.style.backgroundColor = 'yellow';            
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+        
+    <button id="btn" type="button">Click</button>
+
+</body>
+</html>

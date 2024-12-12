@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 전파 : Bubbling</title>
+    <style>
+        #outer {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inner {
+            width: 150px;
+            height: 150px;
+            background-color: lightcoral;
+
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+
+            const outerDiv = document.getElementById('outer');
+            const innerDiv = document.getElementById('inner');
+
+            outerDiv.addEventListener('click', function() {
+                console.log('Outer Div Click');
+                
+            });
+
+            innerDiv.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('Inner Div Click');
+            });
+
+        });
+    </script>
+</head>
+<body>  
+    
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+
+</body>
+</html>
+
+
+
+

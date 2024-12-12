@@ -1,8 +1,6 @@
 
 // array5.js
 
-
-
 const members = [ 
     { 
         firstName: "Julia", 
