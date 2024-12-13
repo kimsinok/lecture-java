@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+    <script src="es11.js"></script>
+</head>
+<body>
+
+    <button id="btn" type="button" onclick="handleClick(event);">Click</button>
+
+    <script>
+
+        const handleClick = (e) => {
+            console.log('this : ', this);  // window 객체
+            console.log('button id : ', e.target.id);
+            console.log('click');
+        }
+
+    </script>
+
+</body>
+</html>

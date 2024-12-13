@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+    <script src="es3.js"></script>
+</head>
+<body>
+    
+    <button id="btn" type="button">Click</button>
+
+    <script>
+
+        const btnElement = document.getElementById('btn');
+
+        btnElement.addEventListener('click', (e) => {
+
+            //console.log('this : ', this);  // window 객체          
+            console.log('target : ', e.target);    
+            console.log('target.id : ', e.target.id);   // btn        
+
+        });
+
+
+
+    </script>
+
+</body>
+</html>
