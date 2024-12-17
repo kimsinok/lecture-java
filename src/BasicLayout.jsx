@@ -1,6 +1,9 @@
 
-const BasicLayout = () => {
+import '../BasicLayout.css';
 
+const BasicLayout = ( {children} ) => {   //props
+  
+    console.log('children : ', children);
 
     return (
         <>
@@ -9,8 +12,7 @@ const BasicLayout = () => {
                 <p>Welcome to the website!</p>
             </header>
             <main>
-                <h2>Main Content</h2>
-                <p>This is where the main content of the page will go.</p>
+              {children}
             </main>
             <footer>
                 <p>&copy; 2024 My Website. All rights reserved.</p>
@@ -21,3 +23,5 @@ const BasicLayout = () => {
 
 
 }
+
+export default BasicLayout;

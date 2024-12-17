@@ -1,7 +1,8 @@
 import React from 'react';
 import '../ResultModal.css'; // CSS 파일 import
 
-const ResultModal = ({ title, content, callbackFn }) => {
+const ResultModal = ({ title, content, callbackFn }) => { // props
+
     return (
         <div className="modal-overlay">
             <div className="modal-container">
@@ -12,7 +13,7 @@ const ResultModal = ({ title, content, callbackFn }) => {
                     <p>{content}</p>
                 </div>
                 <div className="modal-footer">
-                    <button className="close-button" onClick={() => { if (callbackFn) { callbackFn(); } }}>
+                    <button className="close-button" onClick={ () => { if (callbackFn) {callbackFn();}  } }>
                         Close Modal
                     </button>
                 </div>
