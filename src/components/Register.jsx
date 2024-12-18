@@ -1,8 +1,9 @@
 
 // Register.jsx
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ResultModal from "./ResultModal";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
     name: '',
@@ -16,6 +17,14 @@ const Register = () => {
     const [ form, setForm ] = useState({...initialState});  // Rest Parameter
 
     const [ result, setResult ] = useState(null);
+
+    const nameRef = useRef();
+    const birthRef = useRef();
+    const countryRef = useRef();
+    const bioRef = useRef();
+    
+    const navigate = useNavigate();
+
 
     const handleChangeForm = (e) => {
 
@@ -33,12 +42,16 @@ const Register = () => {
 
         if (!form.name) { 
             alert('Enter your name');
+            nameRef.current.focus();
         } else if (!form.birth) {
             alert('Enter your birth');
+            birthRef.current.focus();
         } else if (!form.country) {
             alert('Enter your country');
+            countryRef.current.focus();
         } else if(!form.bio) {
             alert('Enter your bio');
+            bioRef.current.focus();
         } else {
             setResult('success');
         }
@@ -49,7 +62,7 @@ const Register = () => {
     
         setResult(null);
 
-        console.log('로그인 페이지로 이동');
+        navigate({pathname: '/login'}, {replace: true});    
 
     }
  
@@ -59,15 +72,15 @@ const Register = () => {
         <div>
             <div>
                 <h3>이름</h3>
-                <input type='text'  name={'name'}  placeholder={'이름'} onChange={handleChangeForm} />
+                <input type='text' ref={nameRef} name={'name'}  placeholder={'이름'} onChange={handleChangeForm} />
             </div>
             <div>
                 <h3>생년월일</h3>
-                <input type='date' name={'birth'} placeholder={'생년월일'} onChange={handleChangeForm} />
+                <input type='date' ref={birthRef} name={'birth'} placeholder={'생년월일'} onChange={handleChangeForm} />
             </div>
             <div>
                 <h3>국적</h3>
-                <select name='country' onChange={handleChangeForm}>
+                <select name='country' onChange={handleChangeForm} ref={countryRef}>
                     <option></option>
                     <option value='kr'>한국</option>
                     <option value='us'>미국</option>
@@ -76,7 +89,7 @@ const Register = () => {
             </div>
             <div>
                 <h3>자기소개</h3>
-                <textarea name="bio" onChange={handleChangeForm}></textarea>
+                <textarea ref={bioRef} name="bio" onChange={handleChangeForm}></textarea>
             </div>    
             <button onClick={handleClickAdd}>가입</button>
 
