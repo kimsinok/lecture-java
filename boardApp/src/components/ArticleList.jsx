@@ -1,6 +1,7 @@
 import { Table }  from 'react-bootstrap'
 import { getArticleList } from '../api/article';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const ArticeList = () => {
@@ -40,7 +41,7 @@ const ArticeList = () => {
                     articles.map((article, index) => {
                         return (
                             <tr key={article.id}>
-                                <td>{article.title}</td>
+                                <td><Link to={`/view/${article.id}`}>{article.title}</Link></td>
                                 <td>{article.writer}</td>
                                 <td>{new Date(article.reg_date).toLocaleString()}</td>
                             </tr> 

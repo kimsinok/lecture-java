@@ -5,7 +5,6 @@ import { postArticle } from '../api/article';
 import ResultModal from './ResultModal';
 import { replace, useNavigate } from 'react-router-dom';
 
-
 const initialState = {
     title: '',
     writer: '',
@@ -57,6 +56,12 @@ const ArticleWrite = () => {
     }
 
 
+    const handleClickReset = () => {
+        setArticle({
+            ...initialState
+        })
+    }
+
     return (
         <>        
             <Row className='my-5'>
@@ -64,14 +69,14 @@ const ArticleWrite = () => {
                     <h3 className='text-center my-5'>게시글 작성</h3>
                     <Form>
                         <h4>제목</h4>
-                        <Form.Control placeholder='제목을 입력하세요.' className='my-3' name='title' onChange={handleChange}/>
+                        <Form.Control placeholder='제목을 입력하세요.' className='my-3' name='title' value={article.title} onChange={handleChange}/>
                         <h4>작성자</h4>
-                        <Form.Control placeholder='작성자를 입력하세요.' className='my-3' name='writer' onChange={handleChange} />
+                        <Form.Control placeholder='작성자를 입력하세요.' className='my-3' name='writer'value={article.writer}  onChange={handleChange} />
                         <h4>내용</h4>
-                        <Form.Control as='textarea' rows={10} placeholder='내용을 입력하세요.' className='my-3' name='contents' onChange={handleChange}/>
+                        <Form.Control as='textarea' rows={10} placeholder='내용을 입력하세요.' className='my-3' name='contents' value={article.contents} onChange={handleChange}/>
                         <div className='text-center'>
                             <Button className='mx-2 px-3 btn-sm' onClick={handleClickSave}>저장</Button>
-                            <Button className='mx-2 px-3 btn-sm' variant='secondary'>초기화</Button>
+                            <Button className='mx-2 px-3 btn-sm' variant='secondary' onClick={handleClickReset}>초기화</Button>
                         </div>
                     </Form>
                 </Col>

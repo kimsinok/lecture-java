@@ -85,8 +85,32 @@ app.post('/write', (req, res) => {
 
     });
 
+})
+
+
+// 게시글 상세 조회 요청 
+app.get('/view/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    console.log('id : ', id);
+
+    const sql =  `SELECT id, title, contents, writer, reg_date 
+                  FROM article 
+                  WHERE id = ?`;
+
+    db.query(sql, [id], (error, data) => {
+
+        if (error) {
+            console.log('error : ', error);
+            res.status(500).json({message: 'db error'});           
+        } else {
+            res.status(200).json(data);        
+        }
+
+    })
+
 
 
 })
-
 

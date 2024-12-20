@@ -29,3 +29,14 @@ export const  postArticle = async (article) => {
     return response.data;    
 
 }
+
+
+// 게시글 상세조회 API 요청 
+
+export  const getArticle = async (id) => {
+
+    const response = await axios.get(`${API_SERVER_HOST}/view/${id}`);
+    return response.data[0];    
+
+}
+

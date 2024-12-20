@@ -23,6 +23,7 @@ const App = () => {
           <Route path='/view/:id' element={<ArticleView /> } />
           <Route path='/modify/:id' element={<ArticleModify /> } />
       </Routes>
+      
     </>
   )
 

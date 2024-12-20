@@ -10,15 +10,16 @@ export const jsonParser = (req, res, next) => {
         data += chunk;
     });
 
+
     // 클라이언트 요청 수신이 완료되었을때
     req.on('end', () => {
         try {           
             req.body = JSON.parse(data);          
             
         } catch(error) {           
-            req.body = {};
+            req.body = {};  // 중요
         }
-        next();   // 미들웨어, Route 호출
+        next();   // 미들웨어, Route Handler 호출        
     });
 
 }
