@@ -4,25 +4,19 @@ import cors from 'cors';
 import {jsonParser} from '../util/jsonParser.js'
 
 
-
 // App 생성
 const app = express();
 
 const PORT = 5000;
 
-
 // Middleware 등록
-
 app.use(cors());
-
 app.use(jsonParser);
 
 
 // 웹 서버 실행
 app.listen(PORT, () => {
-
     console.log(`Server running at http://localhost:${PORT}`);
-
 })
 
 
@@ -37,7 +31,6 @@ const db = mysql.createConnection({
 
 
 // DB 연결 테스트
-
 // db.connect((error) => {
 //     console.log('error : ', error);
 //     if (error) {
@@ -49,13 +42,15 @@ const db = mysql.createConnection({
 // })
 
 
-// Route 
+// Route 설정
+app.get('/list', (req, res) => {  // Route Handler 함수
 
-app.get('/list', (req, res) => {
+    const sql =  `SELECT id, title, contents, writer, reg_date 
+                  FROM article 
+                  ORDER BY id DESC`;
 
-    const sql = "SELECT id, title, contents, writer, reg_date FROM article ORDER BY id DESC";
-    
     db.query(sql, (error, data) => {
+
         if (error) {
             console.log('error : ', error);
             res.status(500).json({message: 'db error'});           
@@ -66,3 +61,32 @@ app.get('/list', (req, res) => {
     })
 
 })
+
+
+// 게시글 등록 요청 
+app.post('/write', (req, res) => {
+
+    const writer = req.body.writer;
+    const contents = req.body.contents;
+    const title = req.body.title;
+
+    const sql = `
+        INSERT INTO article (writer, contents, title)
+        VALUES (?, ?, ?)
+    `;
+
+    db.query(sql, [writer, contents, title], (error, data) => {
+
+        if (error) {
+            res.status(500).json({message: 'db error'});
+        } else {
+            res.status(200).json({message: 'success'});
+        }
+
+    });
+
+
+
+})
+
+
