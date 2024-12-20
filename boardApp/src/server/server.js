@@ -111,6 +111,34 @@ app.get('/view/:id', (req, res) => {
     })
 
 
-
 })
 
+
+// 게시글 수정 요청 
+
+app.post('/modify/:id', (req, res) => {
+
+    const id = req.params.id;
+    const writer = req.body.writer;
+    const title = req.body.title;
+    const contents = req.body.contents;
+
+
+    const sql = `
+        UPDATE article
+        SET writer = ?, title = ?, contents = ?, reg_date = NOW()
+        WHERE id = ? `;
+
+    db.query(sql, [writer, title, contents, id], (error, data) => {
+
+        if (error) {
+            console.log('error : ', error);
+            res.status(500).json({message: 'db error'});           
+        } else {
+            res.status(200).json({message: 'success'});        
+        }
+
+    })    
+
+
+})

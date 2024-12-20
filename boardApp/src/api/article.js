@@ -40,3 +40,14 @@ export  const getArticle = async (id) => {
 
 }
 
+
+// 게시글 수정 API 요청 
+
+export const modifyArticle = async(article) => {
+
+    const response = await axios.post(`${API_SERVER_HOST}/modify/${article.id}`, article);
+    return response.data;  
+
+}
+
+

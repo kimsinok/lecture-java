@@ -2,7 +2,7 @@ import { Row, Col, Card, Button } from 'react-bootstrap'
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getArticle } from '../api/article';
-import ArticeList from './ArticleList';
+
 
 const ArticleView = () => {
 
