@@ -51,3 +51,12 @@ export const modifyArticle = async(article) => {
 }
 
 
+// 게시글 삭제 API 요청 
+
+export const removeArticle = async (id) => {  // Promise 객체 반환
+
+    const response = await axios.get(`${API_SERVER_HOST}/remove/${id}`);
+
+    return response.data;
+
+}

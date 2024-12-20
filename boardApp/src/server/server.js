@@ -91,7 +91,7 @@ app.post('/write', (req, res) => {
 // 게시글 상세 조회 요청 
 app.get('/view/:id', (req, res) => {
 
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
 
     console.log('id : ', id);
 
@@ -118,7 +118,7 @@ app.get('/view/:id', (req, res) => {
 
 app.post('/modify/:id', (req, res) => {
 
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     const writer = req.body.writer;
     const title = req.body.title;
     const contents = req.body.contents;
@@ -140,5 +140,27 @@ app.post('/modify/:id', (req, res) => {
 
     })    
 
+
+})
+
+
+// 게시글 삭제 요청 
+app.get('/remove/:id', (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    const sql = `
+        DELETE FROM article
+        WHERE id = ?
+    `;
+
+    db.query(sql, [id], (error, data) => {
+        if (error) {
+            console.log('error : ', error);
+            res.status(500).json({message: 'db error'});           
+        } else {
+            res.status(200).json({message: 'success'});        
+        }
+    });
 
 })
