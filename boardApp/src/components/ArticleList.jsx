@@ -19,14 +19,11 @@ const ArticeList = () => {
             .catch((error) => {
                 //console.log('error : ', error);  // {message: 'db error'}
                 console.log('error : ', error.response.data.message);
-
             }) 
 
     }, [])
 
 
-
-	
     return (
         <div className='board-list'>
             <h3>게시글 목록</h3>
@@ -41,11 +38,13 @@ const ArticeList = () => {
                 <tbody>
                 {
                     articles.map((article, index) => {
-                        return (<tr key={article.id}>
-                            <td>{article.title}</td>
-                            <td>{article.writer}</td>
-                            <td>{new Date(article.reg_date).toLocaleString()}</td>
-                        </tr>);
+                        return (
+                            <tr key={article.id}>
+                                <td>{article.title}</td>
+                                <td>{article.writer}</td>
+                                <td>{new Date(article.reg_date).toLocaleString()}</td>
+                            </tr> 
+                        );
 
                     })
                 }  
