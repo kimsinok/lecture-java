@@ -18,3 +18,14 @@ export const getArticleList = async () => {
     return response.data;
 
 }
+
+
+
+// 게시글 등록 API 요청 
+export const  postArticle = async (article) => {
+
+    const response = await axios.post(`${API_SERVER_HOST}/write`, article);
+
+    return response.data;    
+
+}
