@@ -3,3 +3,8 @@
 React : https://www.notion.so/React-127340c0841d80f78819e24686b75e93
 
 Git : https://www.notion.so/Git-GitHub-11a687bdf209404a8c08b05e0c655182
+
+
+Spring Boot : https://www.notion.so/Spring-Boot-API-133340c0841d80528b6dd3d85e484daf
+              https://www.notion.so/Spring-Boot-API-133340c0841d80528b6dd3d85e484daf
+JPA : https://www.notion.so/JPA-Framework-11f340c0841d8078841afe71a12665c6
