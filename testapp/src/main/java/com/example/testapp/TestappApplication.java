@@ -25,6 +25,14 @@ public class TestappApplication {
 
 		notification.notify("kim", "Hello");
 
+		NotificationService notification1 = context.getBean("notification", NotificationService.class);
+
+		if (notification == notification1) {
+			System.out.println("동일한 인스턴스입니다.");
+		} else {
+			System.out.println("다른 인스턴스입니다.");
+		}
+
 	}
 
 }

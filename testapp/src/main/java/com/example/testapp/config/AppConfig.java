@@ -10,23 +10,24 @@ import com.example.testapp.domain.NotificationService;
 import com.example.testapp.domain.Sender;
 import com.example.testapp.domain.SmsSender;
 
-@Configuration
-public class AppConfig {
+// @Configuration
+// public class AppConfig {
 
-    // @Primary
-    @Bean(name = "sms")
-    public SmsSender sender1() {
-        return new SmsSender();
-    }
+// // @Primary
+// @Bean(name = "sms")
+// public SmsSender sender1() {
+// return new SmsSender();
+// }
 
-    @Bean(name = "appPush")
-    public AppPushSender sender2() {
-        return new AppPushSender();
-    }
+// @Bean(name = "appPush")
+// public AppPushSender sender2() {
+// return new AppPushSender();
+// }
 
-    @Bean(name = "notification")
-    public NotificationService notificationService(@Qualifier(value = "appPush") Sender sender) { // DI
-        return new NotificationService(sender);
-    }
+// @Bean(name = "notification")
+// public NotificationService notificationService(@Qualifier(value = "appPush")
+// Sender sender) { // DI
+// return new NotificationService(sender);
+// }
 
-}
+// }
