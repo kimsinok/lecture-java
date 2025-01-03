@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,17 +16,21 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.articleapp.dto.ArticleDto;
 import com.example.articleapp.service.ArticleService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class ArticleController {
 
-    @Autowired
-    private ArticleService articleService;
+    private final ArticleService articleService;
 
     // 게시글 목록 조회 요청
     @GetMapping("/articles")
@@ -38,15 +43,27 @@ public class ArticleController {
     }
 
     // 게시글 등록 요청
+    // @PostMapping("/articles")
+    // public ResponseEntity<Map> createArticle(@RequestBody ArticleDto articleDto)
+    // {
+
+    // int id = articleService.registerArticle(articleDto);
+
+    // Map<String, Integer> map = new HashMap<>();
+    // map.put("id", id);
+
+    // return new ResponseEntity<>(map, HttpStatus.CREATED); // 201
+    // }
+
+    // 게시글 등록 요청
     @PostMapping("/articles")
-    public ResponseEntity<Map> createArticle(@RequestBody ArticleDto articleDto) {
+    public ResponseEntity<Map> createArticle(@RequestPart(value = "files", required = false) List<MultipartFile> files,
+            @RequestPart(value = "article") ArticleDto articleDto) {
 
-        int id = articleService.registerArticle(articleDto);
+        int articleId = articleService.registerArticle(articleDto, files);
 
-        Map<String, Integer> map = new HashMap<>();
-        map.put("id", id);
+        return new ResponseEntity<>(Map.of("id", articleId), HttpStatus.CREATED);
 
-        return new ResponseEntity<>(map, HttpStatus.CREATED); // 201
     }
 
     // 게시글 상세 조회 요청
@@ -88,6 +105,11 @@ public class ArticleController {
         List<ArticleDto> articles = articleService.search(map);
 
         return new ResponseEntity(articles, HttpStatus.OK);
+    }
+
+    @GetMapping("/download/{filename}")
+    public ResponseEntity<Resource> download(@PathVariable("filename") String filename) {
+        return articleService.download(filename);
     }
 
 }
