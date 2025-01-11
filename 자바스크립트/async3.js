@@ -6,7 +6,7 @@ const myPromise = new Promise( (resolve, reject) => {
 
     setTimeout(() => {
 
-        const isSuccess = false;  // 비동기 작업을 성공적으로 수행
+        const isSuccess = true;  // 비동기 작업을 성공적으로 수행
 
         if (isSuccess) {
             resolve('suceess');
